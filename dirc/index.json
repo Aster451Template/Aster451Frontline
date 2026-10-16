@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T10:29:04.1919154Z",
+  "generated_at": "2026-10-16T10:29:55.4360514Z",
   "documents": [
     {
       "id": "9a4085ed-b25a-499d-868b-56918ca40aa0",
@@ -12,13 +12,20 @@
         "Frontline",
         "documentation"
       ],
-      "created_at": "2026-10-16T10:29:03.9664997Z",
-      "updated_at": "2026-10-16T10:21:25Z",
+      "created_at": "2026-10-16T10:29:55.201607Z",
+      "updated_at": "2026-10-16T10:29:43Z",
       "paths": {
         "source_path": "public/index.md",
         "html_path": "dirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html"
       },
       "history": [
+        {
+          "commit_sha": "b7b352ddd78d387aac8a0561d622d8c1e4247b47",
+          "message": "Add sample Markdown file and HTML representation for documentation testing",
+          "author": "LingXuan-Li",
+          "committer": "LingXuan-Li",
+          "created_at": "2026-10-16T10:29:43Z"
+        },
         {
           "commit_sha": "ccb72a5b16aaac797f6171303152604dfced06ba",
           "message": "Initial commit",
