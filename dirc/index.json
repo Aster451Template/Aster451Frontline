@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-10-16T10:29:04.1919154Z",
+  "documents": [
+    {
+      "id": "9a4085ed-b25a-499d-868b-56918ca40aa0",
+      "source_hash": "fc8f8d462a2c431039d775226e90dcfb881207952ec48976edda05c0a3da01ef",
+      "title": "Aster451 Frontline",
+      "path": "/docs/frontline",
+      "author": "example-user",
+      "tags": [
+        "Aster451",
+        "Frontline",
+        "documentation"
+      ],
+      "created_at": "2026-10-16T10:29:03.9664997Z",
+      "updated_at": "2026-10-16T10:21:25Z",
+      "paths": {
+        "source_path": "public/index.md",
+        "html_path": "dirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html"
+      },
+      "history": [
+        {
+          "commit_sha": "ccb72a5b16aaac797f6171303152604dfced06ba",
+          "message": "Initial commit",
+          "author": "LingXuan-Li",
+          "committer": "LingXuan-Li",
+          "created_at": "2026-10-16T10:21:25Z"
+        }
+      ]
+    }
+  ]
+}
