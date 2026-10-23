@@ -1,4 +1,4 @@
-# Aster451 Frontline - Developping
+# Aster451 Frontline - Developing
 
 Markdown の文書から HTML ページと JSON インデックスを生成する、Go 製の静的サイト構築ツールです。文書のメタデータには YAML 形式の Front Matter を使い、Git から文書ごとの変更履歴も取得します。
 
