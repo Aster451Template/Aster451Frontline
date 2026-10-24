@@ -1,0 +1,6 @@
+$ go test ./utils
+--- FAIL: TestHashSourcePathNormalizesRelativePath (0.00s)
+    hash_test.go:14: HashSourcePath() = "b95d4dbd82f97d990c5c10a51a7a06941afec3b58aeba48d4a54d83aa3375241", want "1fb84d4055d34feecf16f171e0df8280fbfc920890e43c25745e169599646e8a"
+FAIL
+FAIL	frontline/utils	0.002s
+FAIL
