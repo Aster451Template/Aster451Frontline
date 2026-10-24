@@ -37,19 +37,19 @@ Worker のエントリーポイントとアセット設定は `src/index.ts` と
 
 ## バグ・脆弱性の報告
 
-[![バグ・不具合を報告](https://img.shields.io/badge/GitHub-%E3%83%90%E3%82%B0%E5%A0%B1%E5%91%8A-7057ff?logo=github)](https://github.com/Aster451Template/Aster451Frontline/issues/new?template=bug_report.yml) [![改善案を提案](https://img.shields.io/badge/GitHub-%E6%94%B9%E5%96%84%E6%A1%88%E3%82%92%E6%8F%90%E6%A1%88-2da44e?logo=github)](https://github.com/Aster451Template/Aster451Frontline/issues/new?template=feature_request.yml) [![脆弱性を非公開で報告](https://img.shields.io/badge/Security-%E9%9D%9E%E5%85%AC%E9%96%8B%E5%A0%B1%E5%91%8A-critical?logo=github)](https://github.com/Aster451Template/Aster451Frontline/security/advisories/new)
+[![バグ報告 / Bug report](https://img.shields.io/badge/GitHub-%E3%83%90%E3%82%B0%E5%A0%B1%E5%91%8A-7057ff?logo=github)](https://github.com/Aster451Template/Aster451Frontline/issues/new?template=bug_report.yml) [![改善案 / Feature request](https://img.shields.io/badge/GitHub-%E6%94%B9%E5%96%84%E6%A1%88%E3%82%92%E6%8F%90%E6%A1%88-2da44e?logo=github)](https://github.com/Aster451Template/Aster451Frontline/issues/new?template=feature_request.yml) [![脆弱性の非公開報告 / Private vulnerability report](https://img.shields.io/badge/Security-%E9%9D%9E%E5%85%AC%E9%96%8B%E5%A0%B1%E5%91%8A-critical?logo=github)](https://github.com/Aster451Template/Aster451Frontline/security/advisories/new)
 
-バグ報告フォームでは、影響に応じて重要度を選べます。
+バグ報告フォームでは、影響に応じて重要度を選べます。 / Select a severity level in the bug report form.
 
-| 評価 | 目安 |
+| 評価 / Severity | 目安 / Guidance |
 | --- | --- |
-| `notice` | 軽微な表示・文書上の問題 |
-| `caution` | 影響が限定的で、回避策がある |
-| `warning` | 主要な機能に影響する |
-| `danger` | 広範な機能停止やデータ破損のおそれがある |
-| `critical` | サービス停止、重大なデータ損失など緊急対応が必要 |
+| `notice` | 軽微な表示・文書上の問題 / Minor visual or documentation issue |
+| `caution` | 影響が限定的で、回避策がある / Limited impact with a workaround |
+| `warning` | 主要な機能に影響する / A major feature is affected |
+| `danger` | 広範な機能停止やデータ破損のおそれがある / Broad outage or possible data corruption |
+| `critical` | サービス停止、重大なデータ損失など緊急対応が必要 / Service outage or serious data loss requiring urgent response |
 
-脆弱性の詳細や再現手順は公開 Issue に書かず、GitHub Security Advisory の非公開報告リンクを使ってください。このリンクを利用できるよう、リポジトリ管理者は GitHub の Settings → Advanced Security で Private vulnerability reporting を有効にしてください。
+脆弱性の詳細や再現手順は公開 Issue に書かず、GitHub Security Advisory の非公開報告リンクを使ってください。 / Do not include vulnerability details in a public issue; use the private GitHub Security Advisory link. このリンクを利用できるよう、リポジトリ管理者は GitHub の Settings → Advanced Security で Private vulnerability reporting を有効にしてください。 / A repository administrator must enable Private vulnerability reporting under Settings → Advanced Security.
 
 ## 文書を追加する
 
