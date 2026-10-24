@@ -19,6 +19,12 @@
             <div class="markdown-body">
                 {{.Body}}
             </div>
+
+            <footer class="document-meta">
+                {{if .Tags}}<p>Tags: {{range $index, $tag := .Tags}}{{if $index}}, {{end}}<a href="/tags/{{$tag}}">{{$tag}}</a>{{end}}</p>{{end}}
+                <p>Created: {{.CreatedAt}}<br>Updated: {{.UpdatedAt}}</p>
+                <p>Powered by Aster451 Frontline</p>
+            </footer>
         </article>
     </main>
 </body>

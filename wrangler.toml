@@ -1,0 +1,8 @@
+name = "aster451-frontline"
+main = "src/index.ts"
+compatibility_date = "2026-10-24"
+
+[assets]
+directory = "./dirc"
+binding = "ASSETS"
+run_worker_first = true

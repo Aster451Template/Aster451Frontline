@@ -1,0 +1,62 @@
+name: Build generated site
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository history
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Test each Go package and record logs
+        run: python scripts/run_tests.py
+
+      - name: Commit README test report and logs
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md log/
+          if git diff --cached --quiet; then
+            echo "No test report changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: record CI test results"
+          git push
+
+      - name: Save test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aster451-frontline-test-logs
+          path: log/
+          if-no-files-found: error
+
+      - name: Build generated HTML and indexes
+        run: go run .
+
+      - name: Save generated site
+        uses: actions/upload-artifact@v4
+        with:
+          name: aster451-frontline-site
+          path: dirc/
+          if-no-files-found: error

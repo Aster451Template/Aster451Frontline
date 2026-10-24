@@ -31,6 +31,53 @@ type headingInfo struct {
 
 type tocExtension struct{}
 type tocNodeRenderer struct{ renderer.Config }
+type boldRenderer struct{ renderer.Config }
+type asterMarkupRenderer struct{ renderer.Config }
+
+func (boldRenderer) RegisterFuncs(reg renderer.NodeRendererFuncRegisterer) {
+	reg.Register(ast.KindEmphasis, func(w util.BufWriter, _ []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+		if node.(*ast.Emphasis).Level != 2 {
+			return ast.WalkContinue, nil
+		}
+		if entering {
+			_, err := w.WriteString("<b>")
+			return ast.WalkContinue, err
+		}
+		_, err := w.WriteString("</b>")
+		return ast.WalkContinue, err
+	})
+}
+
+func (asterMarkupRenderer) RegisterFuncs(reg renderer.NodeRendererFuncRegisterer) {
+	reg.Register(ast.KindBlockquote, func(w util.BufWriter, _ []byte, _ ast.Node, entering bool) (ast.WalkStatus, error) {
+		if entering {
+			_, err := w.WriteString(`<blockquote class="blockquote">`)
+			return ast.WalkContinue, err
+		}
+		_, err := w.WriteString("</blockquote>\n")
+		return ast.WalkContinue, err
+	})
+	reg.Register(ast.KindCodeSpan, func(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+		if entering {
+			if _, err := w.WriteString(`<code class="blockquote-code">`); err != nil {
+				return ast.WalkSkipChildren, err
+			}
+			for child := node.FirstChild(); child != nil; child = child.NextSibling() {
+				segment := child.(*ast.Text).Segment
+				value := segment.Value(source)
+				if bytes.HasSuffix(value, []byte("\n")) {
+					value = append(bytes.Clone(value[:len(value)-1]), ' ')
+				}
+				if _, err := w.Write(util.EscapeHTML(value)); err != nil {
+					return ast.WalkSkipChildren, err
+				}
+			}
+			return ast.WalkSkipChildren, nil
+		}
+		_, err := w.WriteString("</code>")
+		return ast.WalkContinue, err
+	})
+}
 
 var kindTOC = ast.NewNodeKind("TableOfContents")
 
@@ -70,7 +117,11 @@ func (tocNodeRenderer) RegisterFuncs(reg renderer.NodeRendererFuncRegisterer) {
 }
 
 func (tocExtension) Extend(md goldmark.Markdown) {
-	md.Renderer().AddOptions(renderer.WithNodeRenderers(util.Prioritized(tocNodeRenderer{}, 500)))
+	md.Renderer().AddOptions(renderer.WithNodeRenderers(
+		util.Prioritized(tocNodeRenderer{}, 500),
+		util.Prioritized(boldRenderer{}, 998),
+		util.Prioritized(asterMarkupRenderer{}, 999),
+	))
 }
 
 type tocTransformer struct{ excluded map[int]bool }
@@ -141,8 +192,9 @@ func headingID(title string, index int) string {
 
 // PageData は HTML テンプレートに渡すデータ。
 type PageData struct {
-	Title, Author string
-	Body          template.HTML
+	Title, Author, CreatedAt, UpdatedAt string
+	Tags                                []string
+	Body                                template.HTML
 }
 
 func markdownWithTOC(source []byte) ([]byte, error) {
@@ -158,7 +210,7 @@ func markdownWithTOC(source []byte) ([]byte, error) {
 	}
 	source = bytes.Join(lines, []byte("\n"))
 	md := goldmark.New(
-		goldmark.WithExtensions(extension.Strikethrough, tocExtension{}),
+		goldmark.WithExtensions(extension.Strikethrough, extension.TaskList, tocExtension{}),
 		goldmark.WithParserOptions(
 			parser.WithBlockParsers(util.Prioritized(tocBlockParser{}, 50)),
 			parser.WithASTTransformers(util.Prioritized(tocTransformer{excluded: excluded}, 500)),
@@ -181,7 +233,14 @@ func RenderMarkdown(doc models.Document, body []byte, templatePath string) ([]by
 	if err != nil {
 		return nil, fmt.Errorf("parse HTML template: %w", err)
 	}
-	data := PageData{Title: doc.Title, Author: doc.Author, Body: template.HTML(converted)}
+	data := PageData{
+		Title:     doc.Title,
+		Author:    doc.Author,
+		CreatedAt: doc.CreatedAt.Format("2006-01-02 15:04 UTC"),
+		UpdatedAt: doc.UpdatedAt.Format("2006-01-02 15:04 UTC"),
+		Tags:      doc.Tags,
+		Body:      template.HTML(converted),
+	}
 	var output bytes.Buffer
 	if err := tmpl.Execute(&output, data); err != nil {
 		return nil, fmt.Errorf("execute HTML template: %w", err)

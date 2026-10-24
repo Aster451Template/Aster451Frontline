@@ -19,6 +19,38 @@ go run .
 
 `go run .` を実行すると、`public/` 以下の Markdown を処理し、HTML とインデックスを `dirc/` に生成します。既存の `dirc/index.json` があれば文書 ID を引き継ぎます。Git 履歴が取得できる文書は、最新コミット日時を更新日時として使います。
 
+## Go テスト
+
+GitHub Actions は Go の各パッケージを個別にテストします。実行ごとの結果はこの節に追記され、詳細ログは `log/` に保存されます。`python scripts/run_tests.py` で同じテストと記録をローカル実行できます。
+
+## Cloudflare Workers にデプロイする
+
+このプロジェクトは Cloudflare Workers の Static Assets を使います。`/` にアクセスすると `dirc/index.json` の先頭にある文書 HTML を返し、各 HTML と JSON インデックスも静的アセットとして配信します。`main` ブランチへ push すると、GitHub Actions が Go で HTML と JSON を生成し、Actions の実行成果物として `dirc/` を保存します。Cloudflare の API 認証情報は GitHub Actions では使いません。
+
+```sh
+npm install
+npm run build
+npm run dev
+```
+
+Worker のエントリーポイントとアセット設定は `src/index.ts` と `wrangler.toml` にあります。
+
+## バグ・脆弱性の報告
+
+[![バグ・不具合を報告](https://img.shields.io/badge/GitHub-%E3%83%90%E3%82%B0%E5%A0%B1%E5%91%8A-7057ff?logo=github)](https://github.com/Aster451Template/Aster451Frontline/issues/new?template=bug_report.yml) [![改善案を提案](https://img.shields.io/badge/GitHub-%E6%94%B9%E5%96%84%E6%A1%88%E3%82%92%E6%8F%90%E6%A1%88-2da44e?logo=github)](https://github.com/Aster451Template/Aster451Frontline/issues/new?template=feature_request.yml) [![脆弱性を非公開で報告](https://img.shields.io/badge/Security-%E9%9D%9E%E5%85%AC%E9%96%8B%E5%A0%B1%E5%91%8A-critical?logo=github)](https://github.com/Aster451Template/Aster451Frontline/security/advisories/new)
+
+バグ報告フォームでは、影響に応じて重要度を選べます。
+
+| 評価 | 目安 |
+| --- | --- |
+| `notice` | 軽微な表示・文書上の問題 |
+| `caution` | 影響が限定的で、回避策がある |
+| `warning` | 主要な機能に影響する |
+| `danger` | 広範な機能停止やデータ破損のおそれがある |
+| `critical` | サービス停止、重大なデータ損失など緊急対応が必要 |
+
+脆弱性の詳細や再現手順は公開 Issue に書かず、GitHub Security Advisory の非公開報告リンクを使ってください。このリンクを利用できるよう、リポジトリ管理者は GitHub の Settings → Advanced Security で Private vulnerability reporting を有効にしてください。
+
 ## 文書を追加する
 
 1. `public/` 以下に `.md` ファイルを作成します。サブディレクトリも使えます。
@@ -102,4 +134,16 @@ dirc/                    生成物
 
 ## ライセンス
 
-ライセンスはリポジトリ内にまだ記載されていません。再利用・配布する場合は、プロジェクトに適したライセンスを追加してください。
+MIT License
+
+## CI test results
+
+### 20261024T052204Z-local-1 UTC
+
+| Package | Result | Log |
+| --- | --- | --- |
+| `.` | **PASS** | [go-test-20261024T052204Z-local-1-root.log](log/go-test-20261024T052204Z-local-1-root.log) |
+| `./builder` | **PASS** | [go-test-20261024T052204Z-local-1-builder.log](log/go-test-20261024T052204Z-local-1-builder.log) |
+| `./parser` | **PASS** | [go-test-20261024T052204Z-local-1-parser.log](log/go-test-20261024T052204Z-local-1-parser.log) |
+| `./models` | **PASS** | [go-test-20261024T052204Z-local-1-models.log](log/go-test-20261024T052204Z-local-1-models.log) |
+| `./utils` | **PASS** | [go-test-20261024T052204Z-local-1-utils.log](log/go-test-20261024T052204Z-local-1-utils.log) |

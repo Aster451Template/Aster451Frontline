@@ -1,0 +1,2 @@
+$ go test ./parser
+ok  	frontline/parser	0.379s

@@ -1,0 +1,2 @@
+$ go test ./utils
+ok  	frontline/utils	0.383s

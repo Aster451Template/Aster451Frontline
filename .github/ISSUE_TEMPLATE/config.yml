@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 脆弱性を非公開で報告
+    url: https://github.com/Aster451Template/Aster451Frontline/security/advisories/new
+    about: 脆弱性の詳細は公開 Issue に書かず、GitHub Security Advisory から非公開で報告してください。

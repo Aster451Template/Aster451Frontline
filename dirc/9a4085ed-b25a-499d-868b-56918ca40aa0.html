@@ -2,81 +2,87 @@
 <html lang="ja">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Aster451 Frontline</title>
+    <title>Aster451 Frontline</title>
 
-	<link rel="stylesheet" href="https://aster451.aster451-template.workers.dev/aster451.css">
+    <link rel="stylesheet" href="https://aster451.aster451-template.workers.dev/aster451.css">
 </head>
 
 <body>
-	<main class="container">
-		<article>
-			<h1>Aster451 Frontline</h1>
-			<p>Author: example-user</p>
+    <main class="container">
+        <article>
+            <h1>Aster451 Frontline</h1>
+            <p>Author: example-user</p>
 
-			<div class="markdown-body">
-				<h1>🧪 テスト用Markdownファイル</h1>
-				<p>これはGitのプッシュテストや、Markdownの表示確認を行うためのサンプルファイルです。</p>
-				<h2>📝 1. テキスト装飾のテスト</h2>
-				<ul>
-					<li><strong>太字（Bold）のテキスト</strong></li>
-					<li><em>斜体（Italic）のテキスト</em></li>
-					<li>~~打ち消し線（Strikethrough）のテキスト~~</li>
-					<li><code>インラインコード（Inline Code）</code></li>
-				</ul>
-				<hr>
-				<h2>📋 2. リストのテスト</h2>
-				<h3>箇条書き（順不同）</h3>
-				<ul>
-					<li>アイテム A</li>
-					<li>アイテム B
-						<ul>
-							<li>子アイテム B-1</li>
-							<li>子アイテム B-2</li>
-						</ul>
-					</li>
-				</ul>
-				<h3>番号付きリスト</h3>
-				<ol>
-					<li>最初のステップ</li>
-					<li>次のステップ</li>
-					<li>最後のステップ</li>
-				</ol>
-				<h3>タスクリスト</h3>
-				<ul>
-					<li>[x] 完了済みのタスク</li>
-					<li>[ ] 未完了のタスク</li>
-				</ul>
-				<hr>
-				<h2>💻 3. コードブロックのテスト</h2>
-				<pre><code class="language-python">def hello_world():
+            <div class="markdown-body">
+                <h1 id="🧪-テスト用markdownファイル">🧪 テスト用Markdownファイル</h1>
+<p>これはGitのプッシュテストや、Markdownの表示確認を行うためのサンプルファイルです。</p>
+<nav class="table-of-contents"><ul><li class="toc-level-1"><a href="#🧪-テスト用markdownファイル">🧪 テスト用Markdownファイル</a></li><li class="toc-level-2"><a href="#📝-1-テキスト装飾のテスト">📝 1. テキスト装飾のテスト</a></li><li class="toc-level-2"><a href="#📋-2-リストのテスト">📋 2. リストのテスト</a></li><li class="toc-level-3"><a href="#箇条書き（順不同）">箇条書き（順不同）</a></li><li class="toc-level-3"><a href="#番号付きリスト">番号付きリスト</a></li><li class="toc-level-3"><a href="#タスクリスト">タスクリスト</a></li><li class="toc-level-2"><a href="#💻-3-コードブロックのテスト">💻 3. コードブロックのテスト</a></li><li class="toc-level-2"><a href="#📊-4-テーブル（表）のテスト">📊 4. テーブル（表）のテスト</a></li><li class="toc-level-2"><a href="#💡-5-引用と補足">💡 5. 引用と補足</a></li></ul></nav><h2 id="📝-1-テキスト装飾のテスト">📝 1. テキスト装飾のテスト</h2>
+<ul>
+<li><b>太字（Bold）のテキスト</b></li>
+<li>斜体（Italic）のテキスト</li>
+<li><del>打ち消し線（Strikethrough）のテキスト</del></li>
+<li><code>インラインコード（Inline Code）</code></li>
+</ul>
+<hr>
+<h2 id="📋-2-リストのテスト">📋 2. リストのテスト</h2>
+<h3 id="箇条書き（順不同）">箇条書き（順不同）</h3>
+<ul>
+<li>アイテム A</li>
+<li>アイテム B
+<ul>
+<li>子アイテム B-1</li>
+<li>子アイテム B-2</li>
+</ul>
+</li>
+</ul>
+<h3 id="番号付きリスト">番号付きリスト</h3>
+<ol>
+<li>最初のステップ</li>
+<li>次のステップ</li>
+<li>最後のステップ</li>
+</ol>
+<h3 id="タスクリスト">タスクリスト</h3>
+<ul>
+<li>[x] 完了済みのタスク</li>
+<li>[ ] 未完了のタスク</li>
+</ul>
+<hr>
+<h2 id="💻-3-コードブロックのテスト">💻 3. コードブロックのテスト</h2>
+<pre><code class="language-python">def hello_world():
     # テスト用の関数です
     print(&quot;Hello, Git and Markdown!&quot;)
 
 hello_world()
 </code></pre>
-				<hr>
-				<h2>📊 4. テーブル（表）のテスト</h2>
-				<p>| ステータス | コマンド | 説明 |
-					| :--- | :--- | :--- |
-					| 完了 | <code>git init</code> | リポジトリの初期化 |
-					| 完了 | <code>git push</code> | リモートへの反映 |
-					| 進行中 | <code>test.md</code> | テストファイルの追加 |</p>
-				<hr>
-				<h2>💡 5. 引用と補足</h2>
-				<blockquote>
-					<p>[!NOTE]
-						これはGitHubなどで綺麗に装飾されるノート（補足説明）の記述テストです。</p>
-				</blockquote>
-				<blockquote>
-					<p>Markdownはシンプルで読みやすいドキュメントを簡単に作成できる軽量マークアップ言語です。</p>
-				</blockquote>
+<hr>
+<h2 id="📊-4-テーブル（表）のテスト">📊 4. テーブル（表）のテスト</h2>
+<p>| ステータス | コマンド | 説明 |
+| :--- | :--- | :--- |
+| 完了 | <code>git init</code> | リポジトリの初期化 |
+| 完了 | <code>git push</code> | リモートへの反映 |
+| 進行中 | <code>test.md</code> | テストファイルの追加 |</p>
+<hr>
+<h2 id="💡-5-引用と補足">💡 5. 引用と補足</h2>
+<blockquote>
+<p>[!NOTE]
+これはGitHubなどで綺麗に装飾されるノート（補足説明）の記述テストです。</p>
+</blockquote>
+<blockquote>
+<p>Markdownはシンプルで読みやすいドキュメントを簡単に作成できる軽量マークアップ言語です。</p>
+</blockquote>
 
-			</div>
-		</article>
-	</main>
+            </div>
+
+            <footer class="document-meta">
+                <p>Tags: <a href="/tags/Aster451">Aster451</a>, <a href="/tags/Frontline">Frontline</a>, <a href="/tags/documentation">documentation</a></p>
+                <p>Created: 2026-10-24 03:45 UTC<br>Updated: 2026-10-23 16:17 UTC</p>
+                <p>Powered by Aster451 Frontline</p>
+            </footer>
+        </article>
+    </main>
 </body>
 
 </html>

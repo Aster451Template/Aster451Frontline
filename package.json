@@ -1,0 +1,12 @@
+{
+  "name": "aster451-frontline-worker",
+  "private": true,
+  "scripts": {
+    "build": "go run .",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20261024.0",
+    "wrangler": "^4.45.0"
+  }
+}

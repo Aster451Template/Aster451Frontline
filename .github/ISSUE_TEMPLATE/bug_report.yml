@@ -1,0 +1,42 @@
+name: バグ・不具合の報告
+description: 動作不良や予期しない挙動を報告します
+title: "[Bug]: "
+body:
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 重要度
+      description: 影響範囲と回避策の有無を目安に選択してください。
+      options:
+        - notice - 軽微な表示・文書上の問題
+        - caution - 影響が限定的で、回避策がある
+        - warning - 主要な機能に影響する
+        - danger - 広範な機能停止やデータ破損のおそれがある
+        - critical - サービス停止、重大なデータ損失など緊急対応が必要
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 問題の説明
+      description: 何が起きたか、期待する動作を記載してください。
+      placeholder: 再現できる範囲で具体的に記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 再現手順
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 実行環境
+      description: OS、Go のバージョン、実行コマンドなど
+    validations:
+      required: false
