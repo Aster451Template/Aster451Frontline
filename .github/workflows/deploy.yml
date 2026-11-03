@@ -1,21 +1,218 @@
-name: Build generated site
+name: Formatting, Organizing Dependencies, Testing and Build generated site
+
+run-name: "CI and Deployment · ${{ github.ref_name }}"
 
 on:
   push:
     branches:
-      - main
+      - "**"
 
 permissions:
   contents: write
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ci-cd-${{ github.ref }}
   cancel-in-progress: false
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  build:
+  # Formatting, Organizing Dependencies, Testing (Windows)
+  format-and-test:
+    name: Format and Test
+    # Windows is required by the DPAPI based storage package.
+    runs-on: windows-latest
+    timeout-minutes: 15
+
+    env:
+      REF_NAME: ${{ github.ref_name }}
+      RUN_ID: ${{ github.run_id }}
+      RUN_ATTEMPT: ${{ github.run_attempt }}
+      REPOSITORY: ${{ github.repository }}
+      LOG_SCRIPT: .github/scripts/manage_test_logs.py
+
+    steps:
+      - name: Disable Line Ending Conversion
+        run: git config --global core.autocrlf false
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      # Dependency Tidying and Committing
+      - name: Dependency Tidying
+        run: |
+          go mod tidy
+          if ! git diff --quiet -- go.mod go.sum; then
+            echo "::notice title=go mod tidy::go.mod / go.sum were changed and will be committed."
+            git --no-pager diff --stat -- go.mod go.sum
+          fi
+
+      - name: Commit Dependency Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- go.mod
+          if [ -e go.sum ] || git ls-files --error-unmatch -- go.sum >/dev/null 2>&1; then
+            git add -A -- go.sum
+          fi
+          if git diff --cached --quiet -- go.mod go.sum; then
+            echo "No dependency changes to commit."
+          else
+            git commit -m "chore[bot]: Tidy Go modules"
+            git push origin "HEAD:refs/heads/$REF_NAME"
+          fi
+
+      # Formatting and Committing
+      - name: Formatting
+        id: formatting
+        run: |
+          mkdir -p "$RUNNER_TEMP"
+          RESULT_FILE="$RUNNER_TEMP/format-results.txt"
+          : > "$RESULT_FILE"
+          LAST_STATUS=0
+
+          run_tool() {
+            local name="$1"
+            shift
+            echo "### BEGIN $name" >> "$RESULT_FILE"
+            set +e
+            "$@" >> "$RESULT_FILE" 2>&1
+            LAST_STATUS=$?
+            set -e
+            printf '\n### END %s exit=%s\n' "$name" "$LAST_STATUS" >> "$RESULT_FILE"
+          }
+
+          run_tool "prettier" npx --yes prettier --write .
+          PRETTIER_STATUS=$LAST_STATUS
+
+          run_tool "go fmt" go fmt ./...
+          GOFMT_STATUS=$LAST_STATUS
+
+          run_tool "changes" git -c core.quotepath=false diff --name-only
+
+          FORMAT_STATUS=0
+          for status in "$PRETTIER_STATUS" "$GOFMT_STATUS"; do
+            if [ "$status" -ne 0 ]; then
+              FORMAT_STATUS=$status
+              break
+            fi
+          done
+
+          python "$LOG_SCRIPT" \
+            --source "$RESULT_FILE" \
+            --kind formatting \
+            --exit-code "$FORMAT_STATUS" \
+            --run-id "$RUN_ID" \
+            --run-attempt "$RUN_ATTEMPT" \
+            --commit-sha "$(git rev-parse HEAD)" \
+            --repository "$REPOSITORY"
+
+          echo "status=$FORMAT_STATUS" >> "$GITHUB_OUTPUT"
+
+      - name: Commit Formatting
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -u
+          git add -A test-results error
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "style[bot]: Automatic formatting"
+            git push origin "HEAD:refs/heads/$REF_NAME"
+          fi
+
+      # Testing, Logging and committing
+      - name: Testing and Logging
+        id: testing
+        run: |
+          mkdir -p "$RUNNER_TEMP"
+          set +e
+          go test -json -count=1 ./... \
+            > "$RUNNER_TEMP/test-results.json" \
+            2> "$RUNNER_TEMP/test-stderr.txt"
+          TEST_STATUS=$?
+          set -e
+
+          python "$LOG_SCRIPT" \
+            --source "$RUNNER_TEMP/test-results.json" \
+            --stderr "$RUNNER_TEMP/test-stderr.txt" \
+            --kind testing \
+            --exit-code "$TEST_STATUS" \
+            --run-id "$RUN_ID" \
+            --run-attempt "$RUN_ATTEMPT" \
+            --commit-sha "$(git rev-parse HEAD)" \
+            --repository "$REPOSITORY"
+
+          echo "status=$TEST_STATUS" >> "$GITHUB_OUTPUT"
+          git add -A test-results error
+
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "test[bot]: Update test results"
+            git push origin "HEAD:refs/heads/$REF_NAME"
+          fi
+
+      - name: Upload Raw Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: go-ci-raw-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/format-results.txt
+            ${{ runner.temp }}/test-results.json
+            ${{ runner.temp }}/test-stderr.txt
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Check Workflow Status
+        if: always()
+        env:
+          FORMAT_STATUS: ${{ steps.formatting.outputs.status }}
+          TEST_STATUS: ${{ steps.testing.outputs.status }}
+        run: |
+          failed=0
+          check() {
+            local name="$1" status="$2"
+            case "$status" in
+              0) echo "✅ $name: passed" ;;
+              "") echo "::error title=$name::did not complete" && failed=1 ;;
+              *) echo "::error title=$name::failed with exit code $status" && failed=1 ;;
+            esac
+          }
+          check "Formatting" "$FORMAT_STATUS"
+          check "Testing" "$TEST_STATUS"
+          if [ "$failed" -ne 0 ]; then
+            exit 1
+          fi
+
+  # Build and Deploy (Ubuntu)
+  build-and-deploy:
+    needs: format-and-test
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
     steps:
       - name: Checkout repository history
         uses: actions/checkout@v6

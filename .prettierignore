@@ -1,0 +1,7 @@
+# Logs written by the CI bot (JSON). Reformatting them only creates noise.
+test-results/
+error/
+
+# Pushing changes to workflow files with GITHUB_TOKEN is rejected by GitHub,
+# so prettier must never modify them in CI.
+.github/workflows/
