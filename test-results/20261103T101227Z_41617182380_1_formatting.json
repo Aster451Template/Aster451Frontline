@@ -1,0 +1,39 @@
+{
+  "timestamp": "20261103T101227Z",
+  "type": "formatting",
+  "status": "success",
+  "exit_code": 0,
+  "commit": {
+    "sha": "9438f430c800f2664d7d32463f0d07ae1a9b0ffc",
+    "url": "https://github.com/Aster451Template/Aster451Frontline/commit/9438f430c800f2664d7d32463f0d07ae1a9b0ffc"
+  },
+  "github": {
+    "repository": "Aster451Template/Aster451Frontline",
+    "run_id": "41617182380",
+    "run_attempt": "1",
+    "run_url": "https://github.com/Aster451Template/Aster451Frontline/actions/runs/41617182380/attempts/1"
+  },
+  "summary": {
+    "tools": [
+      {
+        "tool": "prettier",
+        "exit_code": 0,
+        "status": "success",
+        "reported_files": [],
+        "errors": [],
+        "output": ""
+      },
+      {
+        "tool": "go fmt",
+        "exit_code": 0,
+        "status": "success",
+        "reported_files": [],
+        "errors": [],
+        "output": ""
+      }
+    ],
+    "reformatted_files": [],
+    "files_source": "git diff"
+  },
+  "details": "### BEGIN prettier\n\u001b[90m.github/ISSUE_TEMPLATE/bug_report.yml\u001b[39m 31ms (unchanged)\n\u001b[90m.github/ISSUE_TEMPLATE/config.yml\u001b[39m 2ms (unchanged)\n\u001b[90m.github/ISSUE_TEMPLATE/feature_request.yml\u001b[39m 5ms (unchanged)\n\u001b[90mdirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html\u001b[39m 46ms (unchanged)\n\u001b[90mdirc/index.json\u001b[39m 31ms (unchanged)\n\u001b[90mdirc/tags.json\u001b[39m 2ms (unchanged)\n\u001b[90mpackage.json\u001b[39m 1ms (unchanged)\n\u001b[90mREADME.md\u001b[39m 109ms (unchanged)\n\u001b[90msrc/index.ts\u001b[39m 63ms (unchanged)\n\u001b[90mtemplate/document.html\u001b[39m 4ms (unchanged)\n\n### END prettier exit=0\n### BEGIN go fmt\n\n### END go fmt exit=0\n### BEGIN changes\n\n### END changes exit=0\n"
+}
