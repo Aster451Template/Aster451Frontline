@@ -1,0 +1,446 @@
+{
+  "timestamp": "20261103T094946Z",
+  "type": "testing",
+  "status": "success",
+  "exit_code": 0,
+  "commit": {
+    "sha": "4d50cac45505e026909ff9dc41522232af89a9ca",
+    "url": "https://github.com/Aster451Template/Aster451Frontline/commit/4d50cac45505e026909ff9dc41522232af89a9ca"
+  },
+  "github": {
+    "repository": "Aster451Template/Aster451Frontline",
+    "run_id": "41614010470",
+    "run_attempt": "1",
+    "run_url": "https://github.com/Aster451Template/Aster451Frontline/actions/runs/41614010470/attempts/1"
+  },
+  "summary": {
+    "packages": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "no_tests": 0
+    },
+    "tests": {
+      "total": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "duration_sec": 0.163,
+    "package_results": [
+      {
+        "package": "frontline",
+        "status": "pass",
+        "elapsed_sec": 0.04,
+        "tests": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "package": "frontline/builder",
+        "status": "pass",
+        "elapsed_sec": 0.033,
+        "tests": {
+          "passed": 3,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "package": "frontline/models",
+        "status": "pass",
+        "elapsed_sec": 0.04,
+        "tests": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "package": "frontline/parser",
+        "status": "pass",
+        "elapsed_sec": 0.03,
+        "tests": {
+          "passed": 3,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "package": "frontline/utils",
+        "status": "pass",
+        "elapsed_sec": 0.02,
+        "tests": {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0
+        }
+      }
+    ],
+    "failed_tests": [],
+    "failed_packages": [],
+    "unparsed_output": ""
+  },
+  "details": [
+    {
+      "Time": "2026-11-03T09:49:45.9091301Z",
+      "Action": "start",
+      "Package": "frontline"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9262944Z",
+      "Action": "start",
+      "Package": "frontline/builder"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.941894Z",
+      "Action": "run",
+      "Package": "frontline",
+      "Test": "TestLoadMarkdownPathsFindsMarkdownRecursively"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9434956Z",
+      "Action": "output",
+      "Package": "frontline",
+      "Test": "TestLoadMarkdownPathsFindsMarkdownRecursively",
+      "Output": "=== RUN   TestLoadMarkdownPathsFindsMarkdownRecursively\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9451757Z",
+      "Action": "output",
+      "Package": "frontline",
+      "Test": "TestLoadMarkdownPathsFindsMarkdownRecursively",
+      "Output": "--- PASS: TestLoadMarkdownPathsFindsMarkdownRecursively (0.01s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.945512Z",
+      "Action": "pass",
+      "Package": "frontline",
+      "Test": "TestLoadMarkdownPathsFindsMarkdownRecursively",
+      "Elapsed": 0.01
+    },
+    {
+      "Time": "2026-11-03T09:49:45.945512Z",
+      "Action": "output",
+      "Package": "frontline",
+      "Output": "PASS\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9495595Z",
+      "Action": "output",
+      "Package": "frontline",
+      "Output": "ok  \tfrontline\t0.040s\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9495595Z",
+      "Action": "pass",
+      "Package": "frontline",
+      "Elapsed": 0.04
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9517477Z",
+      "Action": "start",
+      "Package": "frontline/models"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "run",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersHeadingsAndExcludesMarkedHeading"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersHeadingsAndExcludesMarkedHeading",
+      "Output": "=== RUN   TestMarkdownWithTOCRendersHeadingsAndExcludesMarkedHeading\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersHeadingsAndExcludesMarkedHeading",
+      "Output": "--- PASS: TestMarkdownWithTOCRendersHeadingsAndExcludesMarkedHeading (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "pass",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersHeadingsAndExcludesMarkedHeading",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "run",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersAster451InlineElementsAndTaskList"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersAster451InlineElementsAndTaskList",
+      "Output": "=== RUN   TestMarkdownWithTOCRendersAster451InlineElementsAndTaskList\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersAster451InlineElementsAndTaskList",
+      "Output": "--- PASS: TestMarkdownWithTOCRendersAster451InlineElementsAndTaskList (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "pass",
+      "Package": "frontline/builder",
+      "Test": "TestMarkdownWithTOCRendersAster451InlineElementsAndTaskList",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "run",
+      "Package": "frontline/builder",
+      "Test": "TestBuildTagIndexTrimsDeduplicatesAndSortsTags"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Test": "TestBuildTagIndexTrimsDeduplicatesAndSortsTags",
+      "Output": "=== RUN   TestBuildTagIndexTrimsDeduplicatesAndSortsTags\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Test": "TestBuildTagIndexTrimsDeduplicatesAndSortsTags",
+      "Output": "--- PASS: TestBuildTagIndexTrimsDeduplicatesAndSortsTags (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "pass",
+      "Package": "frontline/builder",
+      "Test": "TestBuildTagIndexTrimsDeduplicatesAndSortsTags",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9568715Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Output": "PASS\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9593759Z",
+      "Action": "output",
+      "Package": "frontline/builder",
+      "Output": "ok  \tfrontline/builder\t0.033s\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9593759Z",
+      "Action": "pass",
+      "Package": "frontline/builder",
+      "Elapsed": 0.033
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9887275Z",
+      "Action": "run",
+      "Package": "frontline/models",
+      "Test": "TestDocumentJSONRoundTrip"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9887275Z",
+      "Action": "output",
+      "Package": "frontline/models",
+      "Test": "TestDocumentJSONRoundTrip",
+      "Output": "=== RUN   TestDocumentJSONRoundTrip\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9900674Z",
+      "Action": "output",
+      "Package": "frontline/models",
+      "Test": "TestDocumentJSONRoundTrip",
+      "Output": "--- PASS: TestDocumentJSONRoundTrip (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9900674Z",
+      "Action": "pass",
+      "Package": "frontline/models",
+      "Test": "TestDocumentJSONRoundTrip",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9900674Z",
+      "Action": "output",
+      "Package": "frontline/models",
+      "Output": "PASS\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9918904Z",
+      "Action": "output",
+      "Package": "frontline/models",
+      "Output": "ok  \tfrontline/models\t0.040s\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9918904Z",
+      "Action": "pass",
+      "Package": "frontline/models",
+      "Elapsed": 0.04
+    },
+    {
+      "Time": "2026-11-03T09:49:45.9988272Z",
+      "Action": "start",
+      "Package": "frontline/parser"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0264266Z",
+      "Action": "run",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterParsesDocumentAndBody"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0264266Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterParsesDocumentAndBody",
+      "Output": "=== RUN   TestParseFrontMatterParsesDocumentAndBody\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterParsesDocumentAndBody",
+      "Output": "--- PASS: TestParseFrontMatterParsesDocumentAndBody (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "pass",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterParsesDocumentAndBody",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "run",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterReportsMissingDelimiter"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterReportsMissingDelimiter",
+      "Output": "=== RUN   TestParseFrontMatterReportsMissingDelimiter\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterReportsMissingDelimiter",
+      "Output": "--- PASS: TestParseFrontMatterReportsMissingDelimiter (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "pass",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterReportsMissingDelimiter",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "run",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterRequiresTitle"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterRequiresTitle",
+      "Output": "=== RUN   TestParseFrontMatterRequiresTitle\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterRequiresTitle",
+      "Output": "--- PASS: TestParseFrontMatterRequiresTitle (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "pass",
+      "Package": "frontline/parser",
+      "Test": "TestParseFrontMatterRequiresTitle",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0270273Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Output": "PASS\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0291826Z",
+      "Action": "output",
+      "Package": "frontline/parser",
+      "Output": "ok  \tfrontline/parser\t0.030s\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.0291826Z",
+      "Action": "pass",
+      "Package": "frontline/parser",
+      "Elapsed": 0.03
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2109435Z",
+      "Action": "start",
+      "Package": "frontline/utils"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2289725Z",
+      "Action": "run",
+      "Package": "frontline/utils",
+      "Test": "TestHashSourcePathNormalizesRelativePath"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2289725Z",
+      "Action": "output",
+      "Package": "frontline/utils",
+      "Test": "TestHashSourcePathNormalizesRelativePath",
+      "Output": "=== RUN   TestHashSourcePathNormalizesRelativePath\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2289725Z",
+      "Action": "output",
+      "Package": "frontline/utils",
+      "Test": "TestHashSourcePathNormalizesRelativePath",
+      "Output": "--- PASS: TestHashSourcePathNormalizesRelativePath (0.00s)\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2289725Z",
+      "Action": "pass",
+      "Package": "frontline/utils",
+      "Test": "TestHashSourcePathNormalizesRelativePath",
+      "Elapsed": 0
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2289725Z",
+      "Action": "output",
+      "Package": "frontline/utils",
+      "Output": "PASS\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2306233Z",
+      "Action": "output",
+      "Package": "frontline/utils",
+      "Output": "ok  \tfrontline/utils\t0.020s\n"
+    },
+    {
+      "Time": "2026-11-03T09:49:46.2306233Z",
+      "Action": "pass",
+      "Package": "frontline/utils",
+      "Elapsed": 0.02
+    }
+  ]
+}
