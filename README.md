@@ -181,10 +181,10 @@ MIT License
 
 ### 20261103T100548Z-41616176963-1 UTC
 
-| Package | Result | Log |
-| --- | --- | --- |
-| `.` | **PASS** | [go-test-20261103T100548Z-41616176963-1-root.log](log/go-test-20261103T100548Z-41616176963-1-root.log) |
+| Package     | Result   | Log                                                                                                          |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `.`         | **PASS** | [go-test-20261103T100548Z-41616176963-1-root.log](log/go-test-20261103T100548Z-41616176963-1-root.log)       |
 | `./builder` | **PASS** | [go-test-20261103T100548Z-41616176963-1-builder.log](log/go-test-20261103T100548Z-41616176963-1-builder.log) |
-| `./parser` | **PASS** | [go-test-20261103T100548Z-41616176963-1-parser.log](log/go-test-20261103T100548Z-41616176963-1-parser.log) |
-| `./models` | **PASS** | [go-test-20261103T100548Z-41616176963-1-models.log](log/go-test-20261103T100548Z-41616176963-1-models.log) |
-| `./utils` | **PASS** | [go-test-20261103T100548Z-41616176963-1-utils.log](log/go-test-20261103T100548Z-41616176963-1-utils.log) |
+| `./parser`  | **PASS** | [go-test-20261103T100548Z-41616176963-1-parser.log](log/go-test-20261103T100548Z-41616176963-1-parser.log)   |
+| `./models`  | **PASS** | [go-test-20261103T100548Z-41616176963-1-models.log](log/go-test-20261103T100548Z-41616176963-1-models.log)   |
+| `./utils`   | **PASS** | [go-test-20261103T100548Z-41616176963-1-utils.log](log/go-test-20261103T100548Z-41616176963-1-utils.log)     |
