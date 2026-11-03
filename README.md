@@ -41,13 +41,13 @@ Worker のエントリーポイントとアセット設定は `src/index.ts` と
 
 バグ報告フォームでは、影響に応じて重要度を選べます。 / Select a severity level in the bug report form.
 
-| 評価 / Severity | 目安 / Guidance |
-| --- | --- |
-| `notice` | 軽微な表示・文書上の問題 / Minor visual or documentation issue |
-| `caution` | 影響が限定的で、回避策がある / Limited impact with a workaround |
-| `warning` | 主要な機能に影響する / A major feature is affected |
-| `danger` | 広範な機能停止やデータ破損のおそれがある / Broad outage or possible data corruption |
-| `critical` | サービス停止、重大なデータ損失など緊急対応が必要 / Service outage or serious data loss requiring urgent response |
+| 評価 / Severity | 目安 / Guidance                                                                                                  |
+| --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `notice`        | 軽微な表示・文書上の問題 / Minor visual or documentation issue                                                   |
+| `caution`       | 影響が限定的で、回避策がある / Limited impact with a workaround                                                  |
+| `warning`       | 主要な機能に影響する / A major feature is affected                                                               |
+| `danger`        | 広範な機能停止やデータ破損のおそれがある / Broad outage or possible data corruption                              |
+| `critical`      | サービス停止、重大なデータ損失など緊急対応が必要 / Service outage or serious data loss requiring urgent response |
 
 脆弱性の詳細や再現手順は公開 Issue に書かず、GitHub Security Advisory の非公開報告リンクを使ってください。 / Do not include vulnerability details in a public issue; use the private GitHub Security Advisory link. このリンクを利用できるよう、リポジトリ管理者は GitHub の Settings → Advanced Security で Private vulnerability reporting を有効にしてください。 / A repository administrator must enable Private vulnerability reporting under Settings → Advanced Security.
 
@@ -64,11 +64,12 @@ title: 駅の案内システム
 path: /docs/station-guide
 author: Aster451 Project
 tags:
-  - 駅
-  - 案内
-created_at: 2026-10-12T00:00:00Z
-updated_at: 2026-10-12T00:00:00Z
-=====
+
+- 駅
+- 案内
+  created_at: 2026-10-12T00:00:00Z
+  updated_at: 2026-10-12T00:00:00Z
+  \=====
 
 # 駅の案内システム
 
@@ -90,11 +91,11 @@ updated_at: 2026-10-12T00:00:00Z
 
 ## 生成物
 
-| パス | 内容 |
-| --- | --- |
-| `dirc/<UUID>.html` | 文書ごとの HTML ページ |
-| `dirc/index.json` | 生成日時、文書メタデータ、原稿・HTML パス、Git 履歴を含む一覧 |
-| `dirc/tags.json` | タグごとに関連文書 UUID をまとめた一覧 |
+| パス               | 内容                                                          |
+| ------------------ | ------------------------------------------------------------- |
+| `dirc/<UUID>.html` | 文書ごとの HTML ページ                                        |
+| `dirc/index.json`  | 生成日時、文書メタデータ、原稿・HTML パス、Git 履歴を含む一覧 |
+| `dirc/tags.json`   | タグごとに関連文書 UUID をまとめた一覧                        |
 
 インデックスとタグ一覧は整形済み JSON です。タグと UUID は安定した順序で出力され、同一文書内の重複タグは除去されます。
 
@@ -140,30 +141,30 @@ MIT License
 
 ### 20261024T052204Z-local-1 UTC
 
-| Package | Result | Log |
-| --- | --- | --- |
-| `.` | **PASS** | [go-test-20261024T052204Z-local-1-root.log](log/go-test-20261024T052204Z-local-1-root.log) |
+| Package     | Result   | Log                                                                                              |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------ |
+| `.`         | **PASS** | [go-test-20261024T052204Z-local-1-root.log](log/go-test-20261024T052204Z-local-1-root.log)       |
 | `./builder` | **PASS** | [go-test-20261024T052204Z-local-1-builder.log](log/go-test-20261024T052204Z-local-1-builder.log) |
-| `./parser` | **PASS** | [go-test-20261024T052204Z-local-1-parser.log](log/go-test-20261024T052204Z-local-1-parser.log) |
-| `./models` | **PASS** | [go-test-20261024T052204Z-local-1-models.log](log/go-test-20261024T052204Z-local-1-models.log) |
-| `./utils` | **PASS** | [go-test-20261024T052204Z-local-1-utils.log](log/go-test-20261024T052204Z-local-1-utils.log) |
+| `./parser`  | **PASS** | [go-test-20261024T052204Z-local-1-parser.log](log/go-test-20261024T052204Z-local-1-parser.log)   |
+| `./models`  | **PASS** | [go-test-20261024T052204Z-local-1-models.log](log/go-test-20261024T052204Z-local-1-models.log)   |
+| `./utils`   | **PASS** | [go-test-20261024T052204Z-local-1-utils.log](log/go-test-20261024T052204Z-local-1-utils.log)     |
 
 ### 20261024T053848Z-40067032600-1 UTC
 
-| Package | Result | Log |
-| --- | --- | --- |
-| `.` | **PASS** | [go-test-20261024T053848Z-40067032600-1-root.log](log/go-test-20261024T053848Z-40067032600-1-root.log) |
+| Package     | Result   | Log                                                                                                          |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `.`         | **PASS** | [go-test-20261024T053848Z-40067032600-1-root.log](log/go-test-20261024T053848Z-40067032600-1-root.log)       |
 | `./builder` | **PASS** | [go-test-20261024T053848Z-40067032600-1-builder.log](log/go-test-20261024T053848Z-40067032600-1-builder.log) |
-| `./parser` | **PASS** | [go-test-20261024T053848Z-40067032600-1-parser.log](log/go-test-20261024T053848Z-40067032600-1-parser.log) |
-| `./models` | **PASS** | [go-test-20261024T053848Z-40067032600-1-models.log](log/go-test-20261024T053848Z-40067032600-1-models.log) |
-| `./utils` | **FAIL** | [go-test-20261024T053848Z-40067032600-1-utils.log](log/go-test-20261024T053848Z-40067032600-1-utils.log) |
+| `./parser`  | **PASS** | [go-test-20261024T053848Z-40067032600-1-parser.log](log/go-test-20261024T053848Z-40067032600-1-parser.log)   |
+| `./models`  | **PASS** | [go-test-20261024T053848Z-40067032600-1-models.log](log/go-test-20261024T053848Z-40067032600-1-models.log)   |
+| `./utils`   | **FAIL** | [go-test-20261024T053848Z-40067032600-1-utils.log](log/go-test-20261024T053848Z-40067032600-1-utils.log)     |
 
 ### 20261024T054852Z-40067707690-1 UTC
 
-| Package | Result | Log |
-| --- | --- | --- |
-| `.` | **PASS** | [go-test-20261024T054852Z-40067707690-1-root.log](log/go-test-20261024T054852Z-40067707690-1-root.log) |
+| Package     | Result   | Log                                                                                                          |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `.`         | **PASS** | [go-test-20261024T054852Z-40067707690-1-root.log](log/go-test-20261024T054852Z-40067707690-1-root.log)       |
 | `./builder` | **PASS** | [go-test-20261024T054852Z-40067707690-1-builder.log](log/go-test-20261024T054852Z-40067707690-1-builder.log) |
-| `./parser` | **PASS** | [go-test-20261024T054852Z-40067707690-1-parser.log](log/go-test-20261024T054852Z-40067707690-1-parser.log) |
-| `./models` | **PASS** | [go-test-20261024T054852Z-40067707690-1-models.log](log/go-test-20261024T054852Z-40067707690-1-models.log) |
-| `./utils` | **PASS** | [go-test-20261024T054852Z-40067707690-1-utils.log](log/go-test-20261024T054852Z-40067707690-1-utils.log) |
+| `./parser`  | **PASS** | [go-test-20261024T054852Z-40067707690-1-parser.log](log/go-test-20261024T054852Z-40067707690-1-parser.log)   |
+| `./models`  | **PASS** | [go-test-20261024T054852Z-40067707690-1-models.log](log/go-test-20261024T054852Z-40067707690-1-models.log)   |
+| `./utils`   | **PASS** | [go-test-20261024T054852Z-40067707690-1-utils.log](log/go-test-20261024T054852Z-40067707690-1-utils.log)     |

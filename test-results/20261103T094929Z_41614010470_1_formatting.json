@@ -1,0 +1,57 @@
+{
+  "timestamp": "20261103T094929Z",
+  "type": "formatting",
+  "status": "success",
+  "exit_code": 0,
+  "commit": {
+    "sha": "47ddc1381381ca5edd204dc2e3c4535540e1e125",
+    "url": "https://github.com/Aster451Template/Aster451Frontline/commit/47ddc1381381ca5edd204dc2e3c4535540e1e125"
+  },
+  "github": {
+    "repository": "Aster451Template/Aster451Frontline",
+    "run_id": "41614010470",
+    "run_attempt": "1",
+    "run_url": "https://github.com/Aster451Template/Aster451Frontline/actions/runs/41614010470/attempts/1"
+  },
+  "summary": {
+    "tools": [
+      {
+        "tool": "prettier",
+        "exit_code": 0,
+        "status": "success",
+        "reported_files": [
+          "dirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html",
+          "dirc/index.json",
+          "dirc/tags.json",
+          "package.json",
+          "public/index.md",
+          "README.md",
+          "src/index.ts",
+          "template/document.html"
+        ],
+        "errors": [],
+        "output": ""
+      },
+      {
+        "tool": "go fmt",
+        "exit_code": 0,
+        "status": "success",
+        "reported_files": [],
+        "errors": [],
+        "output": ""
+      }
+    ],
+    "reformatted_files": [
+      "README.md",
+      "dirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html",
+      "dirc/index.json",
+      "dirc/tags.json",
+      "package.json",
+      "public/index.md",
+      "src/index.ts",
+      "template/document.html"
+    ],
+    "files_source": "git diff"
+  },
+  "details": "### BEGIN prettier\n\u001b[90m.github/ISSUE_TEMPLATE/bug_report.yml\u001b[39m 31ms (unchanged)\n\u001b[90m.github/ISSUE_TEMPLATE/config.yml\u001b[39m 2ms (unchanged)\n\u001b[90m.github/ISSUE_TEMPLATE/feature_request.yml\u001b[39m 5ms (unchanged)\ndirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html 42ms\ndirc/index.json 29ms\ndirc/tags.json 2ms\npackage.json 2ms\npublic/index.md 63ms\nREADME.md 55ms\nsrc/index.ts 63ms\ntemplate/document.html 5ms\n\n### END prettier exit=0\n### BEGIN go fmt\n\n### END go fmt exit=0\n### BEGIN changes\nREADME.md\ndirc/9a4085ed-b25a-499d-868b-56918ca40aa0.html\ndirc/index.json\ndirc/tags.json\npackage.json\npublic/index.md\nsrc/index.ts\ntemplate/document.html\n\n### END changes exit=0\n"
+}

@@ -1,32 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{.Title}}</title>
 
-    <title>{{.Title}}</title>
+		<link
+			rel="stylesheet"
+			href="https://aster451.aster451-template.workers.dev/aster451.css"
+		/>
+	</head>
 
-    <link rel="stylesheet" href="https://aster451.aster451-template.workers.dev/aster451.css">
-</head>
+	<body>
+		<main class="container">
+			<article>
+				<h1>{{.Title}}</h1>
+				<p>Author: {{.Author}}</p>
 
-<body>
-    <main class="container">
-        <article>
-            <h1>{{.Title}}</h1>
-            <p>Author: {{.Author}}</p>
+				<div class="markdown-body">{{.Body}}</div>
 
-            <div class="markdown-body">
-                {{.Body}}
-            </div>
-
-            <footer class="document-meta">
-                {{if .Tags}}<p>Tags: {{range $index, $tag := .Tags}}{{if $index}}, {{end}}<a href="/tags/{{$tag}}">{{$tag}}</a>{{end}}</p>{{end}}
-                <p>Created: {{.CreatedAt}}<br>Updated: {{.UpdatedAt}}</p>
-                <p>Powered by Aster451 Frontline</p>
-            </footer>
-        </article>
-    </main>
-</body>
-
+				<footer class="document-meta">
+					{{if .Tags}}
+					<p>
+						Tags: {{range $index, $tag := .Tags}}{{if $index}},
+						{{end}}<a href="/tags/{{$tag}}">{{$tag}}</a>{{end}}
+					</p>
+					{{end}}
+					<p>Created: {{.CreatedAt}}<br />Updated: {{.UpdatedAt}}</p>
+					<p>Powered by Aster451 Frontline</p>
+				</footer>
+			</article>
+		</main>
+	</body>
 </html>

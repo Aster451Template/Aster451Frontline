@@ -19,7 +19,9 @@ const worker = {
 			return env.ASSETS.fetch(request);
 		}
 
-		const indexResponse = await env.ASSETS.fetch(new Request(new URL("/index.json", url)));
+		const indexResponse = await env.ASSETS.fetch(
+			new Request(new URL("/index.json", url)),
+		);
 		if (!indexResponse.ok) {
 			return new Response("Document index not found", { status: 404 });
 		}
@@ -28,7 +30,9 @@ const worker = {
 		const htmlPath = index.documents?.[0]?.paths?.html_path;
 		const filename = htmlPath?.split(/[\\/]/).pop();
 		if (!filename || !/^[0-9a-f-]+\.html$/i.test(filename)) {
-			return new Response("No generated document is available", { status: 404 });
+			return new Response("No generated document is available", {
+				status: 404,
+			});
 		}
 
 		const documentURL = new URL(`/${filename}`, url);
