@@ -5,3 +5,6 @@ error/
 # Pushing changes to workflow files with GITHUB_TOKEN is rejected by GitHub,
 # so prettier must never modify them in CI.
 .github/workflows/
+
+# ===== was excluded because Prettier's indentation analysis caused an error during deployment
+public/
